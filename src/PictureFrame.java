@@ -13,7 +13,7 @@ public class PictureFrame {
       for (int are = 0; are < 7; are++) {
         for (int see = 0; see < 8; see++) {
           drawDigitGivenCentre(g, 30 + see * 20, 30 + are * 20, 20,
-              master.grid[are][see]);
+              master.grid[are][see],Color.BLACK,2);
         }
       }
     }
@@ -49,25 +49,21 @@ public class PictureFrame {
         g.setColor(Color.RED);
         g.drawRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
         drawDigitGivenCentre(g, 30 + d.hx * 20, 30 + d.hy * 20, 20, d.high,
-            Color.BLUE);
+            Color.BLUE, 2);
         drawDigitGivenCentre(g, 30 + d.lx * 20, 30 + d.ly * 20, 20, d.low,
-            Color.BLUE);
+            Color.BLUE, 2);
       }
     }
-
-    void drawDigitGivenCentre(Graphics g, int x, int y, int diameter, int n) {
+    
+    void drawDigitGivenCentre(Graphics g, int x, int y, int diameter, int n, Color c, int type) {
       int radius = diameter / 2;
-      g.setColor(Color.BLACK);
-      // g.drawOval(x - radius, y - radius, diameter, diameter);
-      FontMetrics fm = g.getFontMetrics();
-      String txt = Integer.toString(n);
-      g.drawString(txt, x - fm.stringWidth(txt) / 2, y + fm.getMaxAscent() / 2);
-    }
-
-    void drawDigitGivenCentre(Graphics g, int x, int y, int diameter, int n,
-        Color c) {
-      int radius = diameter / 2;
-      g.setColor(c);
+      //Without Color = 1, With Color = 2
+      if(type == 1) {
+    	  g.setColor(Color.BLACK);
+      }
+      else if(type == 2) {
+    	  g.setColor(c);
+      }
       // g.drawOval(x - radius, y - radius, diameter, diameter);
       FontMetrics fm = g.getFontMetrics();
       String txt = Integer.toString(n);
@@ -103,13 +99,13 @@ public class PictureFrame {
         drawGridLines(g);
         drawHeadings(g);
         drawGrid(g);
-        master.drawGuesses(g);
+        master.drawDominoesGuesses(g,2);
       }
       if (master.mode == 0) {
         drawGridLines(g);
         drawHeadings(g);
         drawGrid(g);
-        master.drawDominoes(g);
+        master.drawDominoesGuesses(g,1);
       }
     }
 
