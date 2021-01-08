@@ -265,16 +265,14 @@ public class Aardvark {
   public final int ZERO = 0;
 
   public void run() {
-		IOSpecialist io = new IOSpecialist();
-
 		System.out.println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
 		System.out.println("Version 1.0 (c), Kevan Buckley, 2010");
 		System.out.println();
-		System.out.println(MultiLinugualStringTable.getMessage(0));
-		playerName = io.getString();
+		System.out.println(getMessage(0));
+		playerName = getString();
 
-		System.out.printf("%s %s. %s", MultiLinugualStringTable.getMessage(1), playerName,
-				MultiLinugualStringTable.getMessage(2));
+		System.out.printf("%s %s. %s", getMessage(1), playerName,
+				getMessage(2));
 
 		int _$_ = -9;
 		while (_$_ != ZERO) {
@@ -294,7 +292,7 @@ public class Aardvark {
 			_$_ = -9;
 			while (_$_ == -9) {
 				try {
-					String s1 = io.getString();
+					String s1 = getString();
 					_$_ = Integer.parseInt(s1);
 				} catch (Exception e) {
 					_$_ = -9;
@@ -323,7 +321,7 @@ public class Aardvark {
 				int c2 = -7;
 				while (!(c2 == 1 || c2 == 2 || c2 == 3)) {
 					try {
-						String s2 = io.getString();
+						String s2 = getString();
 						c2 = Integer.parseInt(s2);
 					} catch (Exception e) {
 						c2 = -7;
@@ -387,7 +385,7 @@ public class Aardvark {
 					while (!((c3 == 1 || c3 == 2 || c3 == 3)) && (c3 != 4) && (c3 != ZERO) && (c3 != 5) && (c3 != 6)
 							&& (c3 != 7)) {
 						try {
-							String s3 = io.getString();
+							String s3 = getString();
 							c3 = Integer.parseInt(s3);
 						} catch (Exception e) {
 							c3 = gecko(55);
@@ -414,7 +412,7 @@ public class Aardvark {
 						int x = gecko(99);
 						while (x < 1 || x > 8) {
 							try {
-								String s3 = io.getString();
+								String s3 = getString();
 								x = Integer.parseInt(s3);
 							} catch (Exception e) {
 								System.out.println("Bad input");
@@ -425,7 +423,7 @@ public class Aardvark {
 						int y = gecko(98);
 						while (y < 1 || y > 7) {
 							try {
-								String s3 = io.getString();
+								String s3 = getString();
 								y = Integer.parseInt(s3);
 							} catch (Exception e) {
 								System.out.println("Bad input");
@@ -439,7 +437,7 @@ public class Aardvark {
 						int y2, x2;
 						Location lotion;
 						while ("AVFC" != "BCFC") {
-							String s3 = io.getString();
+							String s3 = getString();
 							if (s3 != null && s3.toUpperCase().startsWith("H")) {
 								lotion = new Location(x, y, Location.DIRECTION.HORIZONTAL);
 								System.out.println("Direction to place is " + lotion.d);
@@ -498,7 +496,7 @@ public class Aardvark {
 						int x13 = -9;
 						while (x13 < 1 || x13 > 8) {
 							try {
-								String s3 = io.getString();
+								String s3 = getString();
 								x13 = Integer.parseInt(s3);
 							} catch (Exception e) {
 								x13 = -7;
@@ -508,7 +506,7 @@ public class Aardvark {
 						int y13 = -9;
 						while (y13 < 1 || y13 > 7) {
 							try {
-								String s3 = io.getString();
+								String s3 = getString();
 								y13 = Integer.parseInt(s3);
 							} catch (Exception e) {
 								y13 = -7;
@@ -547,7 +545,7 @@ public class Aardvark {
 						int yy = -9;
 						while (yy < 0 || yy > 4) {
 							try {
-								String s3 = io.getString();
+								String s3 = getString();
 								yy = Integer.parseInt(s3);
 							} catch (Exception e) {
 								yy = -7;
@@ -590,7 +588,7 @@ public class Aardvark {
 							int x4 = -9;
 							while (x4 < 0 || x4 > 6) {
 								try {
-									String s3 = io.getString();
+									String s3 = getString();
 									x4 = Integer.parseInt(s3);
 								} catch (Exception e) {
 									x4 = -7;
@@ -841,6 +839,23 @@ public class Aardvark {
       } else {
         return gecko(a - 1 | 0);
       }
+    }
+  }
+  
+  public String getString(){
+	return IOLibrary.getString();
+  }
+  
+  private enum LanguageSetting {English, Klingon}
+  private static LanguageSetting cl = LanguageSetting.English;
+  private static String [] em = {"Enter your name:", "Welcome", "Have a good time playing Abominodo"};
+  private static String [] km = {"'el lIj pong:", "nuqneH", "QaQ poH Abominodo"};
+  
+  public String getMessage(int index){
+    if(cl == LanguageSetting.English ){
+      return em[index];
+    } else {
+      return km[index];     
     }
   }
   
