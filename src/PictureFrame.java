@@ -1,10 +1,13 @@
 import java.awt.*;
+import java.util.List;
 
 import javax.swing.*;
 
 public class PictureFrame {
   public int[] reroll = null;
   Aardvark master = null;
+  public List<Domino> _d;
+  public List<Domino> _g;
 
   class DominoPanel extends JPanel {
     private static final long serialVersionUID = 4190229282411119364L;
@@ -99,19 +102,33 @@ public class PictureFrame {
         drawGridLines(g);
         drawHeadings(g);
         drawGrid(g);
-        master.drawDominoesGuesses(g,2);
+        drawDominoesGuesses(g,2);
       }
       if (master.mode == 0) {
         drawGridLines(g);
         drawHeadings(g);
         drawGrid(g);
-        master.drawDominoesGuesses(g,1);
+        drawDominoesGuesses(g,1);
       }
     }
 
     public Dimension getPreferredSize() {
       return new Dimension(202, 182);
     }
+    
+    public void drawDominoesGuesses(Graphics g, int type) {
+    	// Dominoes = 1, Guesses = 2
+    	if (type == 1) {
+    		for (Domino d : _d) {
+    			dp.drawDomino(g, d);
+    		}
+    	} else if (type == 2) {
+    		for (Domino d : _g) {
+    			dp.drawDomino(g, d);
+    		}
+    	}		
+    }
+    
   }
 
   public DominoPanel dp;
@@ -130,7 +147,6 @@ public class PictureFrame {
 
   public void reset() {
     // TODO Auto-generated method stub
-
   }
-
+  
 }
