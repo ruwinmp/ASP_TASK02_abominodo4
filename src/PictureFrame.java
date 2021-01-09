@@ -6,8 +6,8 @@ import javax.swing.*;
 public class PictureFrame {
   public int[] reroll = null;
   Aardvark master = null;
-  public List<Domino> _d;
-  public List<Domino> _g;
+  private List<Domino> doList;
+  private List<Domino> guList;
 
   class DominoPanel extends JPanel {
     private static final long serialVersionUID = 4190229282411119364L;
@@ -119,11 +119,11 @@ public class PictureFrame {
     public void drawDominoesGuesses(Graphics g, int type) {
     	// Dominoes = 1, Guesses = 2
     	if (type == 1) {
-    		for (Domino d : _d) {
+    		for (Domino d : doList) {
     			dp.drawDomino(g, d);
     		}
     	} else if (type == 2) {
-    		for (Domino d : _g) {
+    		for (Domino d : guList) {
     			dp.drawDomino(g, d);
     		}
     	}		
