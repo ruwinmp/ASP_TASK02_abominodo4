@@ -59,7 +59,7 @@ public class PictureFrame {
     }
     
     void drawDigitGivenCentre(Graphics g, int x, int y, int diameter, int n, Color c, int type) {
-      //int radius = diameter / 2;
+      int radius = diameter / 2;
       //Without Color = 1, With Color = 2
       if(type == 1) {
     	  g.setColor(Color.BLACK);
@@ -133,7 +133,8 @@ public class PictureFrame {
 
   public DominoPanel dp;
 
-  public void PictureFrame(Aardvark sf) {
+  //public void PictureFrame(Aardvark sf) {
+  public void pictureFrame(Aardvark sf) {
     master = sf;
     if (dp == null) {
       JFrame f = new JFrame("Abominodo");
