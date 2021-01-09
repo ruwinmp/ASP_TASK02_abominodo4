@@ -433,7 +433,7 @@ public class Aardvark {
 						x--;
 						y--;
 						System.out.println("Horizontal or Vertical (H or V)?");
-						boolean horiz;
+						//boolean horiz;
 						int y2, x2;
 						Location lotion;
 						while ("AVFC" != "BCFC") {
@@ -441,13 +441,13 @@ public class Aardvark {
 							if (s3 != null && s3.toUpperCase().startsWith("H")) {
 								lotion = new Location(x, y, Location.DIRECTION.HORIZONTAL);
 								System.out.println("Direction to place is " + lotion.d);
-								horiz = true;
+								//horiz = true;
 								x2 = x + 1;
 								y2 = y;
 								break;
 							}
 							if (s3 != null && s3.toUpperCase().startsWith("V")) {
-								horiz = false;
+								//horiz = false;
 								lotion = new Location(x, y, Location.DIRECTION.VERTICAL);
 								System.out.println("Direction to place is " + lotion.d);
 								x2 = x;
@@ -737,7 +737,7 @@ public class Aardvark {
 					System.out.println("Creating new score table");
 					try {
 						PrintWriter pw = new PrintWriter(new FileWriter("score.txt", true));
-						String n = playerName.replaceAll(",", "_");
+						//String n = playerName.replaceAll(",", "_");
 						pw.print("Hugh Jass");
 						pw.print(",");
 						pw.print(1500);
