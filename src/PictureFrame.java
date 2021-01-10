@@ -98,16 +98,15 @@ public class PictureFrame {
       // }
       //
       // drawGrid(g);
+      if(master.mode == 1 || master.mode == 0) {
+          drawGridLines(g);
+          drawHeadings(g);
+          drawGrid(g); 
+      }
       if (master.mode == 1) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
         drawDominoesGuesses(g,2);
       }
       if (master.mode == 0) {
-        drawGridLines(g);
-        drawHeadings(g);
-        drawGrid(g);
         drawDominoesGuesses(g,1);
       }
     }
