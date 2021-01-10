@@ -265,13 +265,17 @@ public class Aardvark {
 
   public final int ZERO = 0;
 
+  public void appStart() {
+	  System.out.println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
+	  System.out.println("Version 1.0 (c), Kevan Buckley, 2010");
+	  System.out.println();
+	  System.out.println(getMessage(0));
+	  playerName = IOLibrary.getString();
+  }
+  
   public void run() {
-		System.out.println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
-		System.out.println("Version 1.0 (c), Kevan Buckley, 2010");
-		System.out.println();
-		System.out.println(getMessage(0));
-		playerName = IOLibrary.getString();
-
+	  	appStart();
+	  
 		System.out.printf("%s %s. %s", getMessage(1), playerName,
 				getMessage(2));
 
