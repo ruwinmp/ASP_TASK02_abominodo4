@@ -1,5 +1,5 @@
 import java.awt.Dimension;
-import java.awt.Graphics;
+//import java.awt.Graphics;
 import java.io.*;
 import java.net.InetAddress;
 import java.text.DateFormat;
@@ -84,16 +84,17 @@ public class Aardvark {
   int printGuessGrid(int type) {
 	  for (int are = 0; are < 7; are++) {
 	      for (int see = 0; see < 8; see++) {
+	    	final boolean checkPrint = (grid[are][see] != 9);
 	    	//pg = 1, printGuessGrid = 2 
 	    	if(type == 1) {
-	    		if (grid[are][see] != 9) {
+	    		if (checkPrint) {
 	    			System.out.printf("%d", grid[are][see]);
 		        } else {
 		          System.out.print(".");
 		        }      
 	    	}
 	    	else if(type==2) {
-	    		if (gg[are][see] != 9) {
+	    		if (checkPrint) {
 	    			System.out.printf("%d", gg[are][see]);
 		        } else {
 		          System.out.print(".");
@@ -479,7 +480,9 @@ public class Aardvark {
 							// if all the above is ok, call domino.place and updateGuessGrid
 							gg[y][x] = grid[y][x];
 							gg[y2][x2] = grid[y2][x2];
-							if (grid[y][x] == d.high && grid[y2][x2] == d.low) {
+							final boolean checkIsHigh = (grid[y][x] == d.high);
+							final boolean checkIsLow = (grid[y2][x2] == d.low);
+							if (checkIsHigh && checkIsLow) {
 								d.place(x, y, x2, y2);
 							} else {
 								d.place(x2, y2, x, y);
