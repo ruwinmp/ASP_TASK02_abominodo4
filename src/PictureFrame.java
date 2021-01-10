@@ -47,13 +47,15 @@ public class PictureFrame {
         final int x = Math.min(d.lx, d.hx);
         final int w = Math.abs(d.lx - d.hx) + 1;
         final int h = Math.abs(d.ly - d.hy) + 1;
+        final int X_VAL = 20;
+        final int Y_VAL = 30;
         g.setColor(Color.WHITE);
-        g.fillRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
+        g.fillRect(X_VAL + x * X_VAL, X_VAL + y * X_VAL, w * X_VAL, h * X_VAL);
         g.setColor(Color.RED);
-        g.drawRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
-        drawDigitGivenCentre(g, 30 + d.hx * 20, 30 + d.hy * 20, 20, d.high,
+        g.drawRect(X_VAL + x * X_VAL, X_VAL + y * X_VAL, w * X_VAL, h * X_VAL);
+        drawDigitGivenCentre(g, Y_VAL + d.hx * X_VAL, Y_VAL + d.hy * X_VAL, X_VAL, d.high,
             Color.BLUE, 2);
-        drawDigitGivenCentre(g, 30 + d.lx * 20, 30 + d.ly * 20, 20, d.low,
+        drawDigitGivenCentre(g, Y_VAL + d.lx * X_VAL, Y_VAL + d.ly * X_VAL, X_VAL, d.low,
             Color.BLUE, 2);
       }
     }
